@@ -3,72 +3,112 @@
     font-size: 12px;
 }
 
-body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+@media (max-width: 750px) {
+    body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 64px;
+    }
+    
+    header img {
+        width: 187px;
+        height: 41px;
+        margin-bottom: 8px;
+    }
+    
+    header p {
+        color: #FE4400;
+        font-size: 18px;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        font-variant: small-caps;
+        font-feature-settings: 'liga' off;
+        margin-bottom: 48px;
+    }
+    
+    section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 327px;
+    }
+    
+    section .mb-3 {
+        width: 327px;
+    }
+    
+    section .form-label {
+        color: #4A4A4A;
+        margin-bottom: 3px;
+        font-weight: 600;
+    }
+    
+    section .form-control {
+        color: #828282;
+        border: 1px solid #BDBDBD;
+        border-radius: 8px;
+        margin-bottom: 24px;
+        height: 48px;
+    }
+    
+    section #senha {
+        margin-bottom: 3px;
+    }
+    
+    section .mb-3 p {
+        color: #828282;
+        font-weight: 600;
+        margin-bottom: 24px;
+    }
+    
+    section button {
+        color: #fff;
+        background-color: #FE4400;
+        width: 271px;
+        height: 40px;
+        border-radius: 8px;
+        border: none;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+        font-size: 22px;
+        font-weight: 600;
+    }
+    
+    section button:hover {
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.70);
+    }
 }
 
-header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 64px;
-}
+@media (max-width: 350px) {
+    header {
+        margin-top: 34px;
+    }
 
-header img {
-    width: 187px;
-    height: 41px;
-    margin-bottom: 8px;
-}
+    header p {        
+        font-size: 14px;
+        margin-bottom: 24px;
+    }
 
-header p {
-    color: #FE4400;
-    font-size: 18px;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    font-variant: small-caps;
-    font-feature-settings: 'liga' off;
-    margin-bottom: 48px;
-}
+    section .mb-3 {
+        width: 100%;
+    }
 
-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 327px;
-}
+    section .form-control {
+        margin-bottom: 18px;        
+    }
 
-section .form-label {
-    color: #4A4A4A;
-    margin-bottom: 3px;
-    font-weight: 600;
-}
+    section .mb-3 p {
+        margin-bottom: 18px;
+    }
 
-section .form-control {
-    color: #828282;
-    border: 1px solid #BDBDBD;
-    border-radius: 8px;
-    margin-bottom: 24px;
-    height: 48px;
-}
-
-section #senha {
-    margin-bottom: 3px;
-}
-
-section button {
-    color: #fff;
-    background-color: #FE4400;
-    width: 271px;
-    height: 40px;
-    border-radius: 8px;
-    border: none;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
-    font-size: 22px;
-    font-weight: 600;
-}
-
-section button:hover {
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.70);
+    section button {
+        width: 18rem;
+        font-size: 18px;
+    }
 }
