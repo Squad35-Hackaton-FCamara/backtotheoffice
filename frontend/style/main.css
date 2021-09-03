@@ -44,28 +44,24 @@ form .input-group-text a {
         margin-bottom: 48px;
     }
     
-    section .introducao {
-        display: none;
-    }
-
-    section .formulario {
+    section.formulario {
         display: flex;
         flex-direction: column;
         align-items: center;
         width: 327px;
     }
     
-    section .formulario .mb-3 {
+    section.formulario .mb-3 {
         width: 327px;
     }
     
-    section .formulario .form-label {
+    section.formulario .form-label {
         color: #4A4A4A;
         margin-bottom: 3px;
         font-weight: 600;
     }
     
-    section .formulario .form-control {
+    section.formulario .form-control {
         color: #828282;
         border: 1px solid #BDBDBD;
         border-radius: 8px;
@@ -73,7 +69,7 @@ form .input-group-text a {
         height: 48px;
     }
     
-    section .formulario #senha {
+    section.formulario #senha {
         margin-bottom: 3px;
     }
     
@@ -83,7 +79,7 @@ form .input-group-text a {
         margin-bottom: 24px;
     }
     
-    section .formulario button {
+    section.formulario button {
         color: #fff;
         background-color: #FE4400;
         width: 271px;
@@ -95,7 +91,7 @@ form .input-group-text a {
         font-weight: 600;
     }
     
-    section .formulario button:hover {
+    section.formulario button:hover {
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.70);
     }
 }
@@ -110,23 +106,23 @@ form .input-group-text a {
         margin-bottom: 24px;
     }
 
-    section .formulario {
+    section.formulario {
         width: 23rem;
     }
 
-    section .formulario .mb-3 {
+    section.formulario .mb-3 {
         width: 100%;
     }
 
-    section .formulario .form-control {
+    section.formulario .form-control {
         margin-bottom: 18px;        
     }
 
-    section .formulario .mb-3 p {
+    section.formulario .mb-3 p {
         margin-bottom: 18px;
     }
 
-    section .formulario button {
+    section.formulario button {
         width: 18rem;
         font-size: 18px;
     }

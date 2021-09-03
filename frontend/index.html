@@ -16,12 +16,33 @@
         <img src="img/Logotipo-FCamara 1.png">
         <p>DE VOLTA PARA O ESCRITÓRIO</p>
     </header>
-    <section>
-        <div class="formulario">
-            <form>
-                <div class="mb-3">
-                    <label class="form-label">Nome</label>
-                    <input type="text" id="nome" class="form-control" placeholder="Digite seu nome completo sem abreviações">
+    <section class="formulario">
+        <form>
+            <div class="mb-3">
+                <label class="form-label">Nome</label>
+                <input type="text" id="nome" class="form-control" placeholder="Digite seu nome completo sem abreviações">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">E-mail</label>
+                <input type="email" id="email" class="form-control" placeholder="Digite seu e-mail">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Senha</label>
+                <div class="input-group" id="show_hide_password">
+                    <input type="password" id="senha" class="form-control" placeholder="Digite sua senha">
+                    <div class="input-group-text">
+                        <i class="fa fa-eye-slash" aria-hidden="true"></i>
+                    </div>
+                </div>                                    
+                <p>Sua senha deve conter no máximo 8 dígitos</p>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Confirmar senha</label>
+                <div class="input-group" id="show_hide_password">
+                    <input type="password" id="repetirSenha" class="form-control" placeholder="Digite sua senha">
+                    <div class="input-group-text">
+                        <i class="fa fa-eye-slash" aria-hidden="true"></i>
+                    </div>
                 </div>
             </div>  
         </form>
