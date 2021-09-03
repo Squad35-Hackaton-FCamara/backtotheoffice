@@ -3,10 +3,6 @@
     font-size: 12px;
 }
 
-header {
-    display: none;
-}
-
 form .input-group-text {
     background-color: #F2F2F2;
     border: 1px solid #BDBDBD;
@@ -14,7 +10,7 @@ form .input-group-text {
     height: 48px;
 }
 
-form .input-group-text i {
+form .input-group-text a {
     color: #828282;
 }
 
@@ -80,8 +76,8 @@ form .input-group-text i {
     section .formulario #senha {
         margin-bottom: 3px;
     }
-
-    section .formulario .mb-3 p {
+    
+    section .mb-3 p {
         color: #828282;
         font-weight: 600;
         margin-bottom: 24px;
