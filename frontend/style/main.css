@@ -3,6 +3,21 @@
     font-size: 12px;
 }
 
+header {
+    display: none;
+}
+
+form .input-group-text {
+    background-color: #F2F2F2;
+    border: 1px solid #BDBDBD;
+    border-radius: 0 8px 8px 0;
+    height: 48px;
+}
+
+form .input-group-text i {
+    color: #828282;
+}
+
 @media (max-width: 750px) {
     body {
         display: flex;
@@ -33,24 +48,28 @@
         margin-bottom: 48px;
     }
     
-    section {
+    section .introducao {
+        display: none;
+    }
+
+    section .formulario {
         display: flex;
         flex-direction: column;
         align-items: center;
         width: 327px;
     }
     
-    section .mb-3 {
+    section .formulario .mb-3 {
         width: 327px;
     }
     
-    section .form-label {
+    section .formulario .form-label {
         color: #4A4A4A;
         margin-bottom: 3px;
         font-weight: 600;
     }
     
-    section .form-control {
+    section .formulario .form-control {
         color: #828282;
         border: 1px solid #BDBDBD;
         border-radius: 8px;
@@ -58,28 +77,17 @@
         height: 48px;
     }
     
-    section #senha {
+    section .formulario #senha {
         margin-bottom: 3px;
     }
-    
-    form .input-group-text {
-        background-color: #F2F2F2;
-        border: 1px solid #BDBDBD;
-        border-radius: 0 8px 8px 0;
-        height: 48px;
-    }
 
-    form .input-group-text a {
-        color: #828282;
-    }
-
-    section .mb-3 p {
+    section .formulario .mb-3 p {
         color: #828282;
         font-weight: 600;
         margin-bottom: 24px;
     }
     
-    section button {
+    section .formulario button {
         color: #fff;
         background-color: #FE4400;
         width: 271px;
@@ -91,7 +99,7 @@
         font-weight: 600;
     }
     
-    section button:hover {
+    section .formulario button:hover {
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.70);
     }
 }
@@ -106,23 +114,23 @@
         margin-bottom: 24px;
     }
 
-    section {
+    section .formulario {
         width: 23rem;
     }
 
-    section .mb-3 {
+    section .formulario .mb-3 {
         width: 100%;
     }
 
-    section .form-control {
+    section .formulario .form-control {
         margin-bottom: 18px;        
     }
 
-    section .mb-3 p {
+    section .formulario .mb-3 p {
         margin-bottom: 18px;
     }
 
-    section button {
+    section .formulario button {
         width: 18rem;
         font-size: 18px;
     }
