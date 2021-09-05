@@ -2,6 +2,46 @@
     font-family: 'Montserrat';
     font-size: 12px;
 }
+body {
+    display: flex;
+}
+
+header {
+    display: none;
+}
+
+section.introducao {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #FE662E;
+    height: 100vh;
+    width: 50vw;
+}
+
+section.introducao img  {
+    width: 20vw;
+    margin: 37vh auto 13px;
+}
+
+section.introducao p {
+    color: #fff;
+}
+
+section.introducao p.nome-app {
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    font-variant: small-caps;
+    font-feature-settings: 'liga' off;
+    margin-bottom: 80px;
+}
+
+section.introducao p.descricao {
+    font-weight: 500;
+    font-size: 1.5rem;
+    line-height: 130%;    
+}
 
 form .input-group-text {
     background-color: #F2F2F2;
@@ -16,7 +56,6 @@ form .input-group-text a {
 
 @media (max-width: 750px) {
     body {
-        display: flex;
         flex-direction: column;
         align-items: center;
     }
@@ -44,6 +83,10 @@ form .input-group-text a {
         margin-bottom: 48px;
     }
     
+    section.introducao {
+        display: none;
+    }
+
     section.formulario {
         display: flex;
         flex-direction: column;
