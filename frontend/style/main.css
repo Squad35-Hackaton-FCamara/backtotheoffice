@@ -45,7 +45,13 @@ section.introducao p.descricao {
     line-height: 130%;
     text-align: center;
     margin: 0 60px;
+}
 
+section.introducao p.descricao b {
+    font-weight: 900;
+    font-size: 1.5rem;
+    line-height: 130%;
+    text-align: center;
 }
 
 section.formulario {
@@ -72,7 +78,7 @@ section.formulario .form-control {
     color: #828282;
     border: 1px solid #BDBDBD;
     border-radius: 8px;
-    margin-bottom: 24px;
+    margin-bottom: 32px;
     height: 48px;
 }
 
@@ -83,7 +89,22 @@ section.formulario #senha {
 section .mb-3 p {
     color: #828282;
     font-weight: 600;
-    margin-bottom: 24px;
+    margin-bottom: 32px;
+}
+
+form .input-group-text {
+    background-color: #F2F2F2;
+    border: 1px solid #BDBDBD;
+    border-radius: 0 8px 8px 0;
+    height: 48px;
+}
+
+form .input-group-text i {
+    color: #828282;
+}
+
+form .input-group-text i:hover {
+    cursor: pointer;
 }
 
 section.formulario button {
@@ -102,19 +123,11 @@ section.formulario button:hover {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.70);
 }
 
-form .input-group-text {
-    background-color: #F2F2F2;
-    border: 1px solid #BDBDBD;
-    border-radius: 0 8px 8px 0;
-    height: 48px;
-}
-
-form .input-group-text i {
-    color: #828282;
-}
-
-form .input-group-text i:hover {
-    cursor: pointer;
+section.formulario .nao-possui-cadastro {
+    display: flex;
+    width: 271px;
+    justify-content: space-evenly;
+    margin-top: 24px;
 }
 
 @media (max-width: 750px) {
@@ -157,8 +170,12 @@ form .input-group-text i:hover {
         background-image: none;
     }
 
-    section.formulario .mb-3 {
-        width: 327px;
+    section.formulario .form-control {
+        margin-bottom: 24px;
+    }
+
+    section .mb-3 p {
+        margin-bottom: 24px;
     }
 }
 
