@@ -132,10 +132,13 @@ section.formulario .nao-possui-cadastro {
 
 @media (max-width: 750px) {
     body {
-        background-image: url(../img/bg-cadastro-mobile.png);
-        background-size: cover;
+        background-image:  url(../img/bg-cadastro-mobile.png);
+        background-attachment: fixed;
+        background-size: contain;
+        background-repeat: no-repeat;
         flex-direction: column;
         align-items: center;
+        width: 100%;
         height: 100vh;
     }
     

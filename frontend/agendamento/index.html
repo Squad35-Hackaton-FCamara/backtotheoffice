@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>De Volta Para o Escritório!</title>
+        <link href="agendamento.css" rel="stylesheet" >
+        <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>    
+        <link href="/style/bootstrap/bootstrap.min.css" rel="stylesheet">
+        <script src="agendamento.js" defer></script>
+        <script src="/js/bootstrap/bootstrap.min.js" defer></script>
+        <script src="https://use.fontawesome.com/b9bdbd120a.js" defer></script>
+        <script src="@@path/vendor/vanillajs-datepicker/dist/js/datepicker.min.js" defer></script>
+    </head>
+    <body>
+        <header>
+            <img src="/img/Logotipo-FCamara 1.png" alt="logo FCamara">
+            <p>De Volta Para o Escritório</p>
+        </header>
+        <section id="cardAgendamento">
+            <p>Agendamento</p>
+            <form class="was-validated">
+                <div class="mb-3">
+                    <label id="escritorio" class="form-label">Escritório</label>
+                    <select class="form-select" required aria-label="select example">
+                      <option value="">Escolha o escritório de sua preferência</option>
+                      <option value="1">São Paulo</option>
+                      <option value="2">Santos</option>
+                    </select>
+                    <div class="invalid-feedback">Escolha um escritório</div>
+                </div>
+                <div class="mb-3">
+                    <label id="data" class="form-label">Data</label>
+                    
+                    <div class="invalid-feedback">Escolha uma data</div>
+                </div>
+                <div class="mb-3">
+                    <label id="periodo" class="form-label">Período</label>
+                    <select class="form-select" required aria-label="select example">
+                      <option value="">Escolha o melhor período do dia para você</option>
+                      <option value="1">08:00 - 13:00 (Manhã)</option>
+                      <option value="2">13:00 - 18:00 (Tarde)</option>
+                      <option value="3">08:00 - 18:00 (Integral)</option>
+                    </select>
+                    <div class="invalid-feedback">Escolha um período</div>
+                </div>
+            </form>
+        </section>
+        <section id="agendarBtn">
+            <button>Agendar</button>
+        </section>
+    </body>
+</html>
