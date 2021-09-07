@@ -1,0 +1,100 @@
+* {
+    font-family: 'Montserrat';
+}
+
+body {
+    background-image: url(/img/fundo-cinza-e-ondas.png);
+    display: flex;
+    flex-direction: column;
+    align-items: center;    
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    width: 100vw;
+    margin-bottom: 24px;
+    border-radius: 0px 0px 64px 64px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1)
+}
+
+header img {
+    margin: 41px 0 10px;
+    width: 128px;
+    height: 27px
+}
+
+header p {
+    width: 204px;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 23px;
+    text-align: center;
+    letter-spacing: 0.1em;
+    font-variant: small-caps;
+    font-feature-settings: 'liga' off;
+    color: #FE4400;
+    margin-bottom: 24px;
+}
+
+#cardAgendamento {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    width: 327px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 64px;
+}
+
+#cardAgendamento p {
+    font-size: 18px;
+    font-weight: 600;
+    color: #36357E;
+    margin: 24px 0;
+}
+
+#cardAgendamento form {
+    width: 295px;
+}
+
+#cardAgendamento .mb-3{
+    margin-bottom: 24px!important;
+}
+
+#cardAgendamento .mb-3 label {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 3px;
+    color: #FE4400;
+}
+
+#cardAgendamento .mb-3 .form-select {
+    font-size: 12px;
+    height: 40px;
+    border: 1px solid #36357E;
+    border-radius: 8px;
+}
+
+#cardAgendamento .mb-3 .invalid-feedback {
+    font-size: 12px;
+    color: #FE4400
+}
+
+body button{
+    font-weight: 600;
+    font-size: 18px;
+    width: 241px;
+    height: 40px;
+    color: #fff;
+    background: #36357E;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+}
+
+body button:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.70);
+}
