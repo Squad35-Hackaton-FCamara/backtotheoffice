@@ -1,12 +1,28 @@
 const $listaAgendamentos = document.getElementById("listaAgendamentos");
 const cardInicio = document.getElementById("card-inicio");
+const $cardAtualizado = document.getElementById("card-atualizado");
+const $saudacao = document.getElementById("saudacao");
+const agendarBtn = document.getElementById("agendarBtn");
 
 function atualizaUI() {
-    if ($listaAgendamentos && $listaAgendamentos.length > 0) {
+    if ($listaAgendamentos || $listaAgendamentos.length > 0) {
         cardInicio.style.display = "none";
+        $cardAtualizado.style.display = "flex";
+        renderizaSaudacaoAtualizada();
     } else {
-        cardInicio.style.display = "block";
+        cardInicio.style.display = "flex";
+        $cardAtualizado.style.display = "none";
     }
+}
+
+const renderizaSaudacaoAtualizada = () => {
+    const saudacaoAtualizada = document.createElement("div");
+    saudacaoAtualizada.className = "elemento-saudacao";
+    saudacaoAtualizada.innerHTML = `
+    <p class="bem-vindo">Seja bem-vindo, <span>Sangue Laranja!</span></p>
+    <p class="seus-agendamentos">Seus agendamentos:</p>
+    `;
+    $saudacao.append(saudacaoAtualizada);
 }
 
 const objParaArray = (obj) => {
@@ -29,9 +45,9 @@ const renderizaAgendamento = (id, escritorio, data, periodo) => {
     <div class="card">
         <img src="/img/icone-agenda.png" alt="ícone de agenda">
         <div class="agendamento-info">
-            <p>${escritorio}</p>
-            <p>Data: ${data}</p>
-            <p>Horário/Período: ${periodo}</p>
+            <p><span>Escritório:</span> ${escritorio}</p>
+            <p><span>Data:</span> ${data}</p>
+            <p><span>Horário/Período:</span> ${periodo}</p>
         </div>
     </div>
     `;
@@ -57,3 +73,7 @@ window.onload = (event) => {
             console.log(error);
         })
 };
+
+agendarBtn.addEventListener("click", () => {
+    window.location.href = window.location.origin + "/agendamento"
+})

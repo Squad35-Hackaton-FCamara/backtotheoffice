@@ -1,3 +1,4 @@
+const $voltarBtn = document.getElementById("voltarBtn");
 const $agendarBtn = document.getElementById("agendarBtn");
 const $campoEscritorio = document.getElementById("campoEscritorio");
 const $campoData = document.getElementById("campoData");
@@ -8,7 +9,8 @@ const validarCampos = () => {
         Swal.fire({
             icon: 'error',
             title: 'Oops...',
-            text: 'Você esqueceu de preencher algum campo!'
+            text: 'Você esqueceu de preencher algum campo!',
+            confirmButtonColor: '#36357E'
         })
         return false;
     }
@@ -29,15 +31,25 @@ const salvarAgenda = () => {
         data: $campoData.value,
         periodo: $campoPeriodo.value        
     };
-    console.log(agenda);
     axios.post('https://de-volta-para-o-escritorio-default-rtdb.firebaseio.com/agenda.json', agenda)
-        .then(function (response) {        
-            console.log(response);
-        })
-        .catch(function (error) {
-            console.log(error);
-        })
+            .then(function (response) {        
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            })
+
+    Swal.fire({
+        title: 'Sucesso!',
+        text: 'Sua volta ao escritório foi agendada!',
+        imageUrl: 'https://64.media.tumblr.com/tumblr_loutvwGscY1qbbpaoo1_500.gif',
+        imageWidth: 400,
+        imageAlt: 'celebration gif',
+        confirmButtonColor: '#36357E'
+    })
 }
 
 $agendarBtn.addEventListener("click", salvarAgenda)
-
+$voltarBtn.addEventListener("click", () => {
+    window.location.href = window.location.origin + "/tela-inicial"
+})
