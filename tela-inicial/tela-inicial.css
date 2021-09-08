@@ -39,10 +39,10 @@ header p {
     margin-bottom: 24px;
 }
 
-#cardAgendamento {
+.card-agendamento {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     position: relative;
     background-color: #fff;
     width: 736px;
@@ -51,50 +51,61 @@ header p {
     margin-bottom: 32px;
 }
 
-#cardAgendamento p {
+.card-agendamento p {
     font-size: 38px;
     font-weight: 600;
-    color: #36357E;
-    margin: 24px 0;
+    text-align: center;
+    color: #4A4A4A;   
 }
 
-#cardAgendamento button {
-    position: absolute;
-    left:0em;
-    background-image: url(/img/arrow-left.png);
-    background-size: cover;
-    background-color: #fff;
-    width: 44px;
-    height: 44px;
-    margin: 35px 0 0 48px;
-    border: none;
-}
-
-#cardAgendamento form {
-    width: 671px;
-}
-
-#cardAgendamento .mb-3 {
-    margin-bottom: 24px!important;
-}
-
-#cardAgendamento .mb-3 label {
-    font-size: 32px;
-    font-weight: 600;
-    margin-bottom: 3px;
+.card-agendamento p span{
     color: #FE4400;
 }
 
-#cardAgendamento .mb-3 .form-select, #cardAgendamento .mb-3 .form-control {
-    font-size: 28px;
-    height: 64px;
-    border: 1px solid #36357E;
-    border-radius: 8px;
+.card-agendamento p.bem-vindo {
+    margin: 32px 0 16px;
 }
 
-#cardAgendamento .mb-3 .invalid-feedback {
-    font-size: 24px;
-    color: #FE4400
+.card-agendamento p.seus-agendamentos {
+    margin-bottom: 32px;
+}
+
+.elemento-saudacao {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0 32px
+}
+
+ul {
+    list-style-type: none;
+    padding: 0 32px;
+}
+
+ul li .card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 672px;
+    border: 1.5px solid #36357E;
+    border-radius: 12px;
+    margin-bottom: 24px;
+}
+
+ul li .card img{
+    width: 80px;
+    height: 80px;
+    margin: 0 8px 0 16px;
+}
+
+ul li .card .agendamento-info{    
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+ul li .card .agendamento-info p {
+    color: #36357E;
 }
 
 body #agendarBtn {
@@ -131,12 +142,12 @@ body #agendarBtn:hover {
         margin-bottom: 18px;
     }
 
-    #cardAgendamento {
+    .card-agendamento {
         width: 327px;
         margin-bottom: 18px;
     }
 
-    #cardAgendamento p {
+    .card-agendamento p {
         font-size: 18px;
     }
 
@@ -144,24 +155,11 @@ body #agendarBtn:hover {
         width: 295px;
     }
 
-    #cardAgendamento button {
+    .card-agendamento button {
         width: 24px;
         height: 24px;
         margin: 24px 0 0 24px;
         border: none;
-    }
-
-    #cardAgendamento .mb-3 label {
-        font-size: 14px;
-    }
-    
-    #cardAgendamento .mb-3 .form-select, #cardAgendamento .mb-3 .form-control {
-        font-size: 12px;
-        height: 40px;        
-    }
-    
-    #cardAgendamento .mb-3 .invalid-feedback {
-        font-size: 12px;        
     }
 
     body #agendarBtn{
@@ -181,24 +179,11 @@ body #agendarBtn:hover {
         margin-bottom: 24px;
     }
 
-    #cardAgendamento {
+    .card-agendamento {
         width: 16rem;       
-    }
+    }    
 
-    #cardAgendamento .mb-3 {
-        width: 15rem;
-        margin: 0 0 0 24px;
-    }
-
-    #cardAgendamento .form-control {
-        margin-bottom: 18px;        
-    }
-
-    #cardAgendamento .mb-3 p {
-        margin-bottom: 18px;
-    }
-
-    #cardAgendamento #AgendamentoBtn {
+    .card-agendamento #agendarBtn {
         width: 18rem;
         font-size: 18px;
     }
