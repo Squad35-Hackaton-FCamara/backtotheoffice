@@ -1,0 +1,205 @@
+* {
+    font-family: 'Montserrat';
+}
+
+body {
+    background-color: #E0E0E0!important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    width: 100vw;
+    margin-bottom: 24px;
+    border-radius: 0px 0px 64px 64px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1)
+}
+
+header img {
+    margin: 41px 0 10px;
+    width: 294px;
+    height: 64px
+}
+
+header p {
+    width: 332px;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 41.73px;
+    text-align: center;
+    letter-spacing: 0.1em;
+    font-variant: small-caps;
+    font-feature-settings: 'liga' off;
+    color: #FE4400;
+    margin-bottom: 24px;
+}
+
+#cardAgendamento {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    background-color: #fff;
+    width: 736px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 32px;
+}
+
+#cardAgendamento p {
+    font-size: 38px;
+    font-weight: 600;
+    color: #36357E;
+    margin: 24px 0;
+}
+
+#cardAgendamento button {
+    position: absolute;
+    left:0em;
+    background-image: url(/img/arrow-left.png);
+    background-size: cover;
+    background-color: #fff;
+    width: 44px;
+    height: 44px;
+    margin: 35px 0 0 48px;
+    border: none;
+}
+
+#cardAgendamento form {
+    width: 671px;
+}
+
+#cardAgendamento .mb-3 {
+    margin-bottom: 24px!important;
+}
+
+#cardAgendamento .mb-3 label {
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 3px;
+    color: #FE4400;
+}
+
+#cardAgendamento .mb-3 .form-select, #cardAgendamento .mb-3 .form-control {
+    font-size: 28px;
+    height: 64px;
+    border: 1px solid #36357E;
+    border-radius: 8px;
+}
+
+#cardAgendamento .mb-3 .invalid-feedback {
+    font-size: 24px;
+    color: #FE4400
+}
+
+body #agendarBtn {
+    font-weight: 600;
+    font-size: 28px;
+    width: 502px;
+    height: 64px;
+    color: #fff;
+    background: #36357E;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+}
+
+body #agendarBtn:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.70);
+}
+
+@media (max-width: 1350px) {
+    header {
+        margin-bottom: 18px;
+    }
+
+    header img {
+        width: 128px;
+        height: 27px;
+        margin: 24px 0 10px;
+    }
+    
+    header p {
+        width: 204px;
+        font-size: 15px;
+        line-height: 23px;
+        margin-bottom: 18px;
+    }
+
+    #cardAgendamento {
+        width: 327px;
+        margin-bottom: 18px;
+    }
+
+    #cardAgendamento p {
+        font-size: 18px;
+    }
+
+    #cardAgendamento form {
+        width: 295px;
+    }
+
+    #cardAgendamento button {
+        width: 24px;
+        height: 24px;
+        margin: 24px 0 0 24px;
+        border: none;
+    }
+
+    #cardAgendamento .mb-3 label {
+        font-size: 14px;
+    }
+    
+    #cardAgendamento .mb-3 .form-select, #cardAgendamento .mb-3 .form-control {
+        font-size: 12px;
+        height: 40px;        
+    }
+    
+    #cardAgendamento .mb-3 .invalid-feedback {
+        font-size: 12px;        
+    }
+
+    body #agendarBtn{
+        font-weight: 600;
+        font-size: 18px;
+        width: 241px;
+        height: 40px;}
+}
+
+@media (max-width: 350px) {
+    header {
+        width: 100vw;;
+    }
+
+    header p {        
+        font-size: 14px;
+        margin-bottom: 24px;
+    }
+
+    #cardAgendamento {
+        width: 16rem;       
+    }
+
+    #cardAgendamento .mb-3 {
+        width: 15rem;
+        margin: 0 0 0 24px;
+    }
+
+    #cardAgendamento .form-control {
+        margin-bottom: 18px;        
+    }
+
+    #cardAgendamento .mb-3 p {
+        margin-bottom: 18px;
+    }
+
+    #cardAgendamento #AgendamentoBtn {
+        width: 18rem;
+        font-size: 18px;
+    }
+}
