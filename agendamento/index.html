@@ -9,8 +9,7 @@
         <link href="/style/bootstrap/bootstrap.min.css" rel="stylesheet">
         <script src="agendamento.js" defer></script>
         <script src="/js/bootstrap/bootstrap.min.js" defer></script>
-        <script src="https://use.fontawesome.com/b9bdbd120a.js" defer></script>
-        <script src="@@path/vendor/vanillajs-datepicker/dist/js/datepicker.min.js" defer></script>
+        <script src="https://use.fontawesome.com/b9bdbd120a.js" defer></script>        
     </head>
     <body>
         <header>
@@ -19,6 +18,7 @@
         </header>
         <section id="cardAgendamento">
             <p>Agendamento</p>
+            <button class="button"></button>
             <form class="was-validated">
                 <div class="mb-3">
                     <label id="escritorio" class="form-label">Escritório</label>
@@ -31,7 +31,7 @@
                 </div>
                 <div class="mb-3">
                     <label id="data" class="form-label">Data</label>
-                    <input class="form-control" type="date">
+                    <input id="dataInput" class="form-control datepicker" type="date">
                     <div class="invalid-feedback">Escolha uma data</div>
                 </div>
                 <div class="mb-3">
