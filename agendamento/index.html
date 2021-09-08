@@ -7,9 +7,11 @@
         <link href="agendamento.css" rel="stylesheet" >
         <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>    
         <link href="/style/bootstrap/bootstrap.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js" defer></script>
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script src="agendamento.js" defer></script>
         <script src="/js/bootstrap/bootstrap.min.js" defer></script>
-        <script src="https://use.fontawesome.com/b9bdbd120a.js" defer></script>        
+        <script src="https://use.fontawesome.com/b9bdbd120a.js" defer></script>
     </head>
     <body>
         <header>
@@ -21,26 +23,26 @@
             <button class="button"></button>
             <form class="was-validated">
                 <div class="mb-3">
-                    <label id="escritorio" class="form-label">Escritório</label>
-                    <select class="form-select" required aria-label="select example">
+                    <label class="form-label">Escritório</label>
+                    <select id="campoEscritorio" class="form-select" required aria-label="select example">
                       <option value="">Escolha o escritório de sua preferência</option>
-                      <option value="1">São Paulo</option>
-                      <option value="2">Santos</option>
+                      <option value="saoPaulo">São Paulo</option>
+                      <option value="santos">Santos</option>
                     </select>
                     <div class="invalid-feedback">Escolha um escritório</div>
                 </div>
                 <div class="mb-3">
-                    <label id="data" class="form-label">Data</label>
-                    <input id="dataInput" class="form-control" type="date" required>
+                    <label class="form-label">Data</label>
+                    <input id="campoData" class="form-control" type="date" required>
                     <div class="invalid-feedback">Escolha uma data</div>
                 </div>
                 <div class="mb-3">
-                    <label id="periodo" class="form-label">Período</label>
-                    <select class="form-select" required aria-label="select example">
+                    <label class="form-label">Período</label>
+                    <select id="campoPeriodo" class="form-select" required aria-label="select example">
                       <option value="">Escolha o melhor período do dia para você</option>
-                      <option value="1">08:00 - 13:00 (Manhã)</option>
-                      <option value="2">13:00 - 18:00 (Tarde)</option>
-                      <option value="3">08:00 - 18:00 (Integral)</option>
+                      <option value="manha">08:00 - 13:00 (Manhã)</option>
+                      <option value="tarde">13:00 - 18:00 (Tarde)</option>
+                      <option value="integral">08:00 - 18:00 (Integral)</option>
                     </select>
                     <div class="invalid-feedback">Escolha um período</div>
                 </div>
