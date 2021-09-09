@@ -21,15 +21,14 @@ header {
 }
 
 header img {
-    margin: 41px 0 10px;
-    width: 294px;
-    height: 64px
+    margin: 40px 0 10px;
+    width: 290px;    
 }
 
 header p {
     width: 332px;
     font-weight: 600;
-    font-size: 32px;
+    font-size: 24px;
     line-height: 41.73px;
     text-align: center;
     letter-spacing: 0.1em;
@@ -45,14 +44,14 @@ header p {
     align-items: flex-start;
     position: relative;
     background-color: #fff;
-    width: 736px;
+    width: 650px;
     border-radius: 8px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
-    margin-bottom: 32px;
+    margin-bottom: 24px;
 }
 
 .card-agendamento p {
-    font-size: 38px;
+    font-size: 24px;
     font-weight: 600;
     text-align: center;
     color: #4A4A4A;   
@@ -63,11 +62,11 @@ header p {
 }
 
 .card-agendamento p.bem-vindo {
-    margin: 32px 0 16px;
+    margin: 24px auto 16px;
 }
 
 .card-agendamento p.seus-agendamentos {
-    margin-bottom: 32px;
+    margin-bottom: 24px;
 }
 
 .elemento-saudacao {
@@ -86,7 +85,7 @@ ul li .card {
     display: flex;
     flex-direction: row;
     align-items: center;
-    width: 672px;
+    width: 586px;
     border: 1.5px solid #36357E;
     border-radius: 12px;
     margin-bottom: 24px;
@@ -102,17 +101,32 @@ ul li .card .agendamento-info{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    justify-content: space-evenly;
 }
 
 ul li .card .agendamento-info p {
     color: #36357E;
+    margin: 0;
+}
+
+ul li .deletarBtn {
+    position: absolute;
+    right: 0em;
+    top: 0em;
+    background-image: url(/img/lixeira.png);
+    background-size: cover;
+    background-color: #fff;
+    width: 24px;
+    height: 24px;
+    margin: 6px 6px 0 0;
+    border: none;
 }
 
 body #agendarBtn {
     font-weight: 600;
-    font-size: 28px;
-    width: 502px;
-    height: 64px;
+    font-size: 26px;
+    width: 340px;
+    height: 58px;
     color: #fff;
     background: #36357E;
     border: none;
@@ -148,17 +162,47 @@ body #agendarBtn:hover {
     }
 
     .card-agendamento p {
-        font-size: 18px;
+        font-size: 16px;
     }
 
-    #cardAgendamento form {
-        width: 295px;
+    ul {
+        padding: 0!important;
+        margin: 10px;
     }
-
-    .card-agendamento button {
-        width: 24px;
-        height: 24px;
-        margin: 24px 0 0 24px;
+    
+    ul li .card {       
+        width: 307px;        
+        border-radius: 12px;
+        margin-bottom: 12px;
+    }
+    
+    ul li .card img{
+        width: 32px;
+        height: 32px;
+        margin: 0 8px 0 16px;
+    }
+    
+    ul li .card .agendamento-info{    
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-evenly;
+    }
+    
+    ul li .card .agendamento-info p {
+        font-size: 14px;
+    }
+    
+    ul li .deletarBtn {
+        position: absolute;
+        right: 0em;
+        top: 0em;
+        background-image: url(/img/lixeira.png);
+        background-size: cover;
+        background-color: #fff;
+        width: 16px;
+        height: 16px;
+        margin: 6px 6px 0 0;
         border: none;
     }
 

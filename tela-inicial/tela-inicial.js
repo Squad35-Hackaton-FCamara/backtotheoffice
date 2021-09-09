@@ -19,7 +19,7 @@ const renderizaSaudacaoAtualizada = () => {
     const saudacaoAtualizada = document.createElement("div");
     saudacaoAtualizada.className = "elemento-saudacao";
     saudacaoAtualizada.innerHTML = `
-    <p class="bem-vindo">Seja bem-vindo, <span>Sangue Laranja!</span></p>
+    <p class="bem-vindo">Seja bem-vindo(a), <span>Sangue Laranja!</span></p>
     <p class="seus-agendamentos">Seus agendamentos:</p>
     `;
     $saudacao.append(saudacaoAtualizada);
@@ -38,11 +38,46 @@ const objParaArray = (obj) => {
     return result;
 };
 
+const deletaAgendamento = (id) => {
+    axios.delete("https://de-volta-para-o-escritorio-default-rtdb.firebaseio.com/agenda.json",{
+        data: {id: id}
+      }).then((response) => {
+        Swal.fire(
+            'Deletado!',
+            'Seu agendamento foi deletado.',
+            'success'
+          )
+      }).catch((error) => {
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Algo deu errado!'
+          })
+      })
+}
+
+const exibeModalDeletarAgendamento = (id) => {
+    Swal.fire({
+        title: 'Tem certeza de que quer deletar este agendamento?',
+        text: "Você não poderá reverter esta ação!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#36357E',
+        cancelButtonColor: '#FE4400',
+        confirmButtonText: 'Sim, deletar!',
+        cancelButtonText: 'Cancelar'
+      }).then((result) => {
+        if (result.isConfirmed) {          
+            deletaAgendamento(id);            
+        }
+      })
+}
+
 const renderizaAgendamento = (id, escritorio, data, periodo) => {
-    const novoAgendamento = document.createElement("li");
+    const novoAgendamento = document.createElement("li");    
     novoAgendamento.className = "elemento-agendamento";
     novoAgendamento.innerHTML = `
-    <div class="card">
+    <div class="card">       
         <img src="/img/icone-agenda.png" alt="ícone de agenda">
         <div class="agendamento-info">
             <p><span>Escritório:</span> ${escritorio}</p>
@@ -50,11 +85,15 @@ const renderizaAgendamento = (id, escritorio, data, periodo) => {
             <p><span>Horário/Período:</span> ${periodo}</p>
         </div>
     </div>
-    `;
-    //novoAgendamento.addEventListener("click", mostrarModalDeletarAgendamento.bind(null, id));  
+    `;    
+
+    const deletarAgendamentoBtn = document.createElement("button");
+    deletarAgendamentoBtn.className = "deletarBtn";
+
+    novoAgendamento.addEventListener("click", exibeModalDeletarAgendamento.bind(null, id));
+    novoAgendamento.querySelector(".card").append(deletarAgendamentoBtn); 
     $listaAgendamentos.append(novoAgendamento);
 }
-
 
 const mostraListaAgendamentos = (agendamentos) => {    
     for (let obj of agendamentos) {
