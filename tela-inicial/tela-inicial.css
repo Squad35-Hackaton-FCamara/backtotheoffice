@@ -53,8 +53,11 @@ header p {
 .card-agendamento p {
     font-size: 24px;
     font-weight: 600;
-    text-align: center;
     color: #4A4A4A;   
+}
+
+#card-inicio {
+    padding: 0 32px;
 }
 
 .card-agendamento p span{
@@ -62,7 +65,7 @@ header p {
 }
 
 .card-agendamento p.bem-vindo {
-    margin: 24px auto 16px;
+    margin: 24px 0 16px 0;
 }
 
 .card-agendamento p.seus-agendamentos {
@@ -156,9 +159,24 @@ body #agendarBtn:hover {
         margin-bottom: 18px;
     }
 
+    .card-agendamento p.bem-vindo {
+        margin: 16px auto 12px;
+    }
+    
+    .card-agendamento p.seus-agendamentos {
+        margin-bottom: 16px;
+    }
+    
+    .elemento-saudacao {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0 16px
+    }
+
     .card-agendamento {
         width: 327px;
-        margin-bottom: 18px;
+        margin-bottom: 16px;
     }
 
     .card-agendamento p {
@@ -171,22 +189,13 @@ body #agendarBtn:hover {
     }
     
     ul li .card {       
-        width: 307px;        
-        border-radius: 12px;
+        width: 307px;
         margin-bottom: 12px;
     }
     
     ul li .card img{
         width: 32px;
-        height: 32px;
-        margin: 0 8px 0 16px;
-    }
-    
-    ul li .card .agendamento-info{    
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: space-evenly;
+        height: 32px;       
     }
     
     ul li .card .agendamento-info p {
@@ -194,16 +203,8 @@ body #agendarBtn:hover {
     }
     
     ul li .deletarBtn {
-        position: absolute;
-        right: 0em;
-        top: 0em;
-        background-image: url(/img/lixeira.png);
-        background-size: cover;
-        background-color: #fff;
         width: 16px;
         height: 16px;
-        margin: 6px 6px 0 0;
-        border: none;
     }
 
     body #agendarBtn{
@@ -225,10 +226,24 @@ body #agendarBtn:hover {
 
     .card-agendamento {
         width: 16rem;       
-    }    
+    }
 
-    .card-agendamento #agendarBtn {
-        width: 18rem;
-        font-size: 18px;
+    ul li .card {
+        width: 15rem;
+    }
+
+    ul li .card img{
+        width: 28px;
+        height: 28px;
+        margin: 0 8px 0 8px;
+    }
+    
+    ul li .card .agendamento-info p {
+        font-size: 12px;
+    }
+
+    body #agendarBtn {
+        width: 12rem;
+        font-size: 16px;
     }
 }

@@ -1,16 +1,16 @@
 const $listaAgendamentos = document.getElementById("listaAgendamentos");
-const cardInicio = document.getElementById("card-inicio");
+const $cardInicio = document.getElementById("card-inicio");
 const $cardAtualizado = document.getElementById("card-atualizado");
 const $saudacao = document.getElementById("saudacao");
-const agendarBtn = document.getElementById("agendarBtn");
+const $agendarBtn = document.getElementById("agendarBtn");
 
 function atualizaUI() {
     if (document.querySelectorAll("#listaAgendamentos li").length > 0) {
-        cardInicio.style.display = "none";
+        $cardInicio.style.display = "none";
         $cardAtualizado.style.display = "flex";
         renderizaSaudacaoAtualizada();
     } else {
-        cardInicio.style.display = "flex";
+        $cardInicio.style.display = "flex";
         $cardAtualizado.style.display = "none";
     }
 }
@@ -41,19 +41,25 @@ const objParaArray = (obj) => {
 const deletaAgendamento = (id) => {
     axios.delete("https://de-volta-para-o-escritorio-default-rtdb.firebaseio.com/agenda.json",{
         data: {id: id}
-      }).then((response) => {
-        Swal.fire(
-            'Deletado!',
-            'Seu agendamento foi deletado.',
-            'success'
-          )
-      }).catch((error) => {
+    }).then((response) => {
+        Swal.fire({
+            title: 'Deletado!',
+            text: "Seu agendamento foi deletado.",
+            icon: 'success',
+            confirmButtonColor: '#36357E'
+        }).then((result) => {
+            if (result.isConfirmed) {          
+                window.location.href = window.location.origin + "/tela-inicial"                 
+            }
+          })
+    }).catch((error) => {
         Swal.fire({
             icon: 'error',
             title: 'Oops...',
-            text: 'Algo deu errado!'
+            text: 'Algo deu errado!',
+            confirmButtonColor: '#36357E'
           })
-      })
+    })
 }
 
 const exibeModalDeletarAgendamento = (id) => {
@@ -68,7 +74,7 @@ const exibeModalDeletarAgendamento = (id) => {
         cancelButtonText: 'Cancelar'
       }).then((result) => {
         if (result.isConfirmed) {          
-            deletaAgendamento(id);            
+            deletaAgendamento(id);                       
         }
       })
 }
@@ -113,6 +119,6 @@ window.onload = (event) => {
         })
 };
 
-agendarBtn.addEventListener("click", () => {
+$agendarBtn.addEventListener("click", () => {
     window.location.href = window.location.origin + "/agendamento"
 })
