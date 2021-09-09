@@ -41,42 +41,33 @@ const objParaArray = (obj) => {
 };
 
 const deletaAgendamento = (id) => {
-    debugger
     let agendamentoIndex = 0;
     for (const agendamento of agendamentos) {
         if (agendamento.id === id) {
         break;
         }
         agendamentoIndex++;
-        debugger
     }
-    debugger
     agendamentos.splice(agendamentoIndex, 1);
-    debugger
     $listaAgendamentos.children[agendamentoIndex].remove();
-    debugger
-    axios.delete("https://de-volta-para-o-escritorio-default-rtdb.firebaseio.com/agenda.json",{
-        data: {id: id}
-    }).then((response) => {
-        debugger
+    axios.delete(`https://de-volta-para-o-escritorio-default-rtdb.firebaseio.com/agenda/${id}.json`).then((response) => {
         Swal.fire({
             title: 'Deletado!',
             text: "Seu agendamento foi deletado.",
             icon: 'success',
             confirmButtonColor: '#36357E'
         }).then((result) => {
-            debugger
             if (result.isConfirmed) {
                 window.location.href = window.location.origin + "/tela-inicial"
             }
-          })       
+        })       
     }).catch((error) => {
         Swal.fire({
             icon: 'error',
             title: 'Oops...',
             text: 'Algo deu errado!',
             confirmButtonColor: '#36357E'
-          })
+        })
     })
 }
 
@@ -97,7 +88,23 @@ const exibeModalDeletarAgendamento = (id) => {
       })
 }
 
-const renderizaAgendamento = (id, escritorio, data, periodo) => {
+const renderizaAgendamento = (id, escritorio, data, periodo) => {    
+    if (escritorio == "saoPaulo") {
+        escritorio = "São Paulo";
+    } else {
+        escritorio = "Santos";
+    }
+
+    data = new Date(data).toLocaleDateString('pt-BR');
+
+    if (periodo == "manha") {
+        periodo = "08:00 - 13:00 (Manhã)";
+    } else if (periodo == "tarde") {
+        periodo = "13:00 - 18:00 (Tarde)";
+    } else {
+        periodo = "08:00 - 18:00 (Integral)";
+    }
+    
     const novoAgendamento = document.createElement("li");    
     novoAgendamento.className = "elemento-agendamento";
     novoAgendamento.innerHTML = `
@@ -114,7 +121,7 @@ const renderizaAgendamento = (id, escritorio, data, periodo) => {
     const deletarAgendamentoBtn = document.createElement("button");
     deletarAgendamentoBtn.className = "deletarBtn";
 
-    novoAgendamento.addEventListener("click", exibeModalDeletarAgendamento.bind(null, id));
+    deletarAgendamentoBtn.addEventListener("click", exibeModalDeletarAgendamento.bind(null, id));
     novoAgendamento.querySelector(".card").append(deletarAgendamentoBtn); 
     $listaAgendamentos.append(novoAgendamento);
 }
@@ -132,7 +139,6 @@ window.onload = () => {
             const agendamentosArray = objParaArray(response.data);
             mostraListaAgendamentos(agendamentosArray);
             agendamentos.push(agendamentosArray);
-            console.log(agendamentos); 
         })
         .catch(function (error) {    
             console.log(error);

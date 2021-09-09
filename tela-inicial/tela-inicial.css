@@ -100,11 +100,12 @@ ul li .card img{
     margin: 0 8px 0 16px;
 }
 
-ul li .card .agendamento-info{    
+ul li .card .agendamento-info {    
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: space-evenly;
+    padding: 8px 0;
 }
 
 ul li .card .agendamento-info p {
@@ -185,19 +186,19 @@ body #agendarBtn:hover {
 
     ul {
         padding: 0!important;
-        margin: 10px;
+        margin: 0 10px!important;
     }
     
     ul li .card {       
         width: 307px;
-        margin-bottom: 12px;
+        margin-bottom: 16px;
     }
     
     ul li .card img{
         width: 32px;
         height: 32px;       
     }
-    
+
     ul li .card .agendamento-info p {
         font-size: 14px;
     }
