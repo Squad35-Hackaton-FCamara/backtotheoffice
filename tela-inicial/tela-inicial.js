@@ -5,7 +5,7 @@ const $saudacao = document.getElementById("saudacao");
 const agendarBtn = document.getElementById("agendarBtn");
 
 function atualizaUI() {
-    if ($listaAgendamentos || $listaAgendamentos.length > 0) {
+    if (document.querySelectorAll("#listaAgendamentos li").length > 0) {
         cardInicio.style.display = "none";
         $cardAtualizado.style.display = "flex";
         renderizaSaudacaoAtualizada();
