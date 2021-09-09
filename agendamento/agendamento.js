@@ -42,9 +42,10 @@ const salvarAgenda = () => {
     Swal.fire({
         title: 'Sucesso!',
         text: 'Sua volta ao escritório foi agendada!',
-        imageUrl: 'https://64.media.tumblr.com/tumblr_loutvwGscY1qbbpaoo1_500.gif',
+        //imageUrl: 'https://64.media.tumblr.com/tumblr_loutvwGscY1qbbpaoo1_500.gif',
         imageWidth: 400,
-        imageAlt: 'celebration gif',
+        icon: "success",
+        //imageAlt: 'celebration gif',
         confirmButtonColor: '#36357E'
     })
 }
