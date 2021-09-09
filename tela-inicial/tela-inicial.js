@@ -4,6 +4,8 @@ const $cardAtualizado = document.getElementById("card-atualizado");
 const $saudacao = document.getElementById("saudacao");
 const $agendarBtn = document.getElementById("agendarBtn");
 
+const agendamentos = [];
+
 function atualizaUI() {
     if (document.querySelectorAll("#listaAgendamentos li").length > 0) {
         $cardInicio.style.display = "none";
@@ -39,19 +41,35 @@ const objParaArray = (obj) => {
 };
 
 const deletaAgendamento = (id) => {
+    debugger
+    let agendamentoIndex = 0;
+    for (const agendamento of agendamentos) {
+        if (agendamento.id === id) {
+        break;
+        }
+        agendamentoIndex++;
+        debugger
+    }
+    debugger
+    agendamentos.splice(agendamentoIndex, 1);
+    debugger
+    $listaAgendamentos.children[agendamentoIndex].remove();
+    debugger
     axios.delete("https://de-volta-para-o-escritorio-default-rtdb.firebaseio.com/agenda.json",{
         data: {id: id}
     }).then((response) => {
+        debugger
         Swal.fire({
             title: 'Deletado!',
             text: "Seu agendamento foi deletado.",
             icon: 'success',
             confirmButtonColor: '#36357E'
         }).then((result) => {
-            if (result.isConfirmed) {          
-                window.location.href = window.location.origin + "/tela-inicial"                 
+            debugger
+            if (result.isConfirmed) {
+                window.location.href = window.location.origin + "/tela-inicial"
             }
-          })
+          })       
     }).catch((error) => {
         Swal.fire({
             icon: 'error',
@@ -108,11 +126,13 @@ const mostraListaAgendamentos = (agendamentos) => {
     atualizaUI();
 };
 
-window.onload = (event) => {
+window.onload = () => {
     axios.get('https://de-volta-para-o-escritorio-default-rtdb.firebaseio.com/agenda.json')
         .then(function (response) {
             const agendamentosArray = objParaArray(response.data);
             mostraListaAgendamentos(agendamentosArray);
+            agendamentos.push(agendamentosArray);
+            console.log(agendamentos); 
         })
         .catch(function (error) {    
             console.log(error);
