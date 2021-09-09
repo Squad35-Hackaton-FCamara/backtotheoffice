@@ -4,6 +4,12 @@ const $campoEscritorio = document.getElementById("campoEscritorio");
 const $campoData = document.getElementById("campoData");
 const $campoPeriodo = document.getElementById("campoPeriodo");
 
+const atualizaUI = () => {
+    $campoEscritorio.value = "";
+    $campoData.value = "";
+    $campoPeriodo.value = "";
+}
+
 const validarCampos = () => {
     if ($campoEscritorio.value == "" || $campoData.value == "" || $campoPeriodo.value == "") {
         Swal.fire({
@@ -47,7 +53,11 @@ const salvarAgenda = () => {
         icon: "success",
         //imageAlt: 'celebration gif',
         confirmButtonColor: '#36357E'
-    })
+    }).then((result) => {
+        if (result.isConfirmed) {          
+            atualizaUI();
+        }
+      })    
 }
 
 $agendarBtn.addEventListener("click", salvarAgenda)
