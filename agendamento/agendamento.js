@@ -57,7 +57,7 @@ const salvarAgenda = () => {
         if (result.isConfirmed) {          
             atualizaUI();
         }
-      })    
+    })    
 }
 
 $agendarBtn.addEventListener("click", salvarAgenda)
