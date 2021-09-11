@@ -66,6 +66,7 @@ section.formulario {
 
 section.formulario .mb-3 {
     width: 327px;
+    margin-bottom: 24px!important;
 }
 
 section.formulario .form-label {
@@ -77,13 +78,13 @@ section.formulario .form-label {
 section.formulario .form-control {
     color: #828282;
     border: 1px solid #BDBDBD;
-    border-radius: 8px;
-    margin-bottom: 32px;
+    border-radius: 8px;    
     height: 48px;
 }
 
-section.formulario #senha {
-    margin-bottom: 3px;
+section.formulario .invalid-feedback {
+    font-size: 12px;
+    color: #FE4400
 }
 
 section .mb-3 p {
@@ -95,7 +96,7 @@ section .mb-3 p {
 form .input-group-text {
     background-color: #F2F2F2;
     border: 1px solid #BDBDBD;
-    border-radius: 0 8px 8px 0;
+    border-radius: 0 8px 8px 0!important;
     height: 48px;
 }
 
@@ -131,11 +132,7 @@ section.formulario .nao-possui-cadastro {
 }
 
 @media (max-width: 750px) {
-    body {
-        background-image:  url(../img/bg-cadastro-mobile.png);
-        background-attachment: fixed;
-        background-size: contain;
-        background-repeat: no-repeat;
+    body {       
         flex-direction: column;
         align-items: center;
         width: 100%;
@@ -171,15 +168,7 @@ section.formulario .nao-possui-cadastro {
 
     section.formulario {
         background-image: none;
-    }
-
-    section.formulario .form-control {
-        margin-bottom: 24px;
-    }
-
-    section .mb-3 p {
-        margin-bottom: 24px;
-    }
+    }    
 }
 
 @media (max-width: 350px) {
@@ -193,17 +182,14 @@ section.formulario .nao-possui-cadastro {
     }
 
     section.formulario {
-        width: 23rem;
+        width: 22rem;
     }
 
     section.formulario .mb-3 {
-        width: 100%;
+        width: 22rem;
+        margin-bottom: 18px!important;
     }
-
-    section.formulario .form-control {
-        margin-bottom: 18px;        
-    }
-
+   
     section.formulario .mb-3 p {
         margin-bottom: 18px;
     }
