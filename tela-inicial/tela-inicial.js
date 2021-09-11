@@ -93,7 +93,7 @@ const exibeModalDeletarAgendamento = (id) => {
 const renderizaAgendamento = (id, escritorio, data, periodo) => {    
     if (escritorio == "saoPaulo") {
         escritorio = "São Paulo";
-    } else {
+    } else if (escritorio == "santos") {
         escritorio = "Santos";
     }
 
@@ -103,11 +103,11 @@ const renderizaAgendamento = (id, escritorio, data, periodo) => {
         periodo = "08:00 - 13:00 (Manhã)";
     } else if (periodo == "tarde") {
         periodo = "13:00 - 18:00 (Tarde)";
-    } else {
+    } else if (periodo == "integral"){
         periodo = "08:00 - 18:00 (Integral)";
     }
     
-    const novoAgendamento = document.createElement("li");    
+    const novoAgendamento = document.createElement("li");
     novoAgendamento.className = "elemento-agendamento";
     novoAgendamento.innerHTML = `
     <div class="card">       
