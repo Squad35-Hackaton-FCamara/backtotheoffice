@@ -23,15 +23,65 @@ const validarCampos = () => {
     return true;
 }
 
-const salvarAgenda = () => {
+const objParaArray = (obj) => {
+    let result = [];    
+    for (let key in obj) {
+       if (obj.hasOwnProperty(key)) {
+           result.push({
+            ...obj[key],
+            id: key
+           });
+       }
+    }
+    return result;
+};
+
+const verificarDisponibilidade = async () => {
+    const escritorioEscolhido = $campoEscritorio.value;
+    const dataEScolhida = $campoData.value;
+    const peridoEscolhido = $campoPeriodo.value;
+    const agendamentosDoDia = [];
+    const response = await axios.get('https://de-volta-para-o-escritorio-default-rtdb.firebaseio.com/agenda.json')
+    const agendamentosArray = objParaArray(response.data);
+    console.log(agendamentosArray);
+    debugger
+    for (const agendamento of agendamentosArray) {
+        debugger
+        if (agendamento.escritorio == escritorioEscolhido && 
+            agendamento.data == dataEScolhida &&
+            (agendamento.periodo == peridoEscolhido || agendamento.periodo == "integral")) {
+                agendamentosDoDia.push(agendamento)
+        }
+        console.log(agendamentosDoDia);
+    }
+
+    if (agendamentosDoDia.length >= 2) {
+        return false;
+    } else {
+        return true;
+    }
+}
+
+const salvarAgenda = async () => {
     const camposValidos = validarCampos();
     if (camposValidos == false) {
         return;
-    }    
+    }
+
+    const disponibilidade = await verificarDisponibilidade();
+    if (disponibilidade == false) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Infelizmente não há agendamentos disponíveis para este escritório na data e no período escolhidos.'
+        })
+        atualizaUI();
+        return;
+    }
     const agenda = {
         usuario: {
             nome: "Usuário",
-            id: 1
+            userId: 1
         },
         escritorio: $campoEscritorio.value,
         data: $campoData.value,
@@ -57,7 +107,7 @@ const salvarAgenda = () => {
         if (result.isConfirmed) {          
             atualizaUI();
         }
-      })    
+    })    
 }
 
 $agendarBtn.addEventListener("click", salvarAgenda)
