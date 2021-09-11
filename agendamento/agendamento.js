@@ -42,20 +42,26 @@ const verificarDisponibilidade = async () => {
     const peridoEscolhido = $campoPeriodo.value;
     const agendamentosDoDia = [];
     const response = await axios.get('https://de-volta-para-o-escritorio-default-rtdb.firebaseio.com/agenda.json')
-    const agendamentosArray = objParaArray(response.data);
-    console.log(agendamentosArray);
-    debugger
+    const agendamentosArray = objParaArray(response.data);    
     for (const agendamento of agendamentosArray) {
-        debugger
         if (agendamento.escritorio == escritorioEscolhido && 
             agendamento.data == dataEScolhida &&
-            (agendamento.periodo == peridoEscolhido || agendamento.periodo == "integral")) {
+            (agendamento.periodo == peridoEscolhido || agendamento.periodo == "integral" || peridoEscolhido == "integral")) {
                 agendamentosDoDia.push(agendamento)
         }
-        console.log(agendamentosDoDia);
     }
-
-    if (agendamentosDoDia.length >= 2) {
+    
+    const porcentagem = 0.4;
+    const maxLugaresSaoPaulo = 600;
+    const maxLugaresSantos = 100;
+    let maxAgendamentos;
+    if (escritorioEscolhido == "saoPaulo") {
+        maxAgendamentos = porcentagem * maxLugaresSaoPaulo;
+    } else if (escritorioEscolhido == "santos") {
+        maxAgendamentos = porcentagem * maxLugaresSantos;
+    }
+    
+    if (agendamentosDoDia.length >= maxAgendamentos) {
         return false;
     } else {
         return true;
@@ -75,7 +81,6 @@ const salvarAgenda = async () => {
             title: 'Oops...',
             text: 'Infelizmente não há agendamentos disponíveis para este escritório na data e no período escolhidos.'
         })
-        atualizaUI();
         return;
     }
     const agenda = {
@@ -88,26 +93,26 @@ const salvarAgenda = async () => {
         periodo: $campoPeriodo.value        
     };
     axios.post('https://de-volta-para-o-escritorio-default-rtdb.firebaseio.com/agenda.json', agenda)
-            .then(function (response) {        
-                console.log(response);
+            .then(function (response) {
+                Swal.fire({
+                    title: 'Sucesso!',
+                    text: 'Sua volta ao escritório foi agendada!',                    
+                    icon: "success",
+                    confirmButtonColor: '#36357E'
+                }).then((result) => {
+                    if (result.isConfirmed) {          
+                        atualizaUI();
+                    }
+                })
             })
-            .catch(function (error) {
-                console.log(error);
-            })
-
-    Swal.fire({
-        title: 'Sucesso!',
-        text: 'Sua volta ao escritório foi agendada!',
-        //imageUrl: 'https://64.media.tumblr.com/tumblr_loutvwGscY1qbbpaoo1_500.gif',
-        imageWidth: 400,
-        icon: "success",
-        //imageAlt: 'celebration gif',
-        confirmButtonColor: '#36357E'
-    }).then((result) => {
-        if (result.isConfirmed) {          
-            atualizaUI();
-        }
-    })    
+            .catch(function (error) {         
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Algo deu errado!',
+                    confirmButtonColor: '#36357E'
+                })   
+            })    
 }
 
 $agendarBtn.addEventListener("click", salvarAgenda)
