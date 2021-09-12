@@ -8,6 +8,7 @@
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>    
     <link href="/style/bootstrap/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js" defer></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="/cadastro/iconesenha.js" defer></script>
     <script src="/cadastro/cadastro.js" defer></script>
     <script src="/js/bootstrap/bootstrap.min.js" defer></script>
@@ -24,7 +25,7 @@
         <p class="descricao">Faça seu cadastro de forma rápida e prática :D</p>
     </section>
     <section class="formulario">
-        <form class="was-validated">
+        <form class="was-validated">           
             <div class="mb-3">
                 <label class="form-label">Nome</label>
                 <input type="text" id="nome" class="form-control" placeholder="Digite seu nome completo" required>
@@ -57,7 +58,7 @@
             </div>  
         </form>
         <div>
-            <button>Cadastrar</button>
+            <button id="cadastrarBtn">Cadastrar</button>
         </div>
     </section>   
 </body>

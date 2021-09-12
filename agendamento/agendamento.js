@@ -8,7 +8,7 @@ const atualizaUI = () => {
     $campoEscritorio.value = "";
     $campoData.value = "";
     $campoPeriodo.value = "";
-}
+};
 
 const validarCampos = () => {
     if ($campoEscritorio.value == "" || $campoData.value == "" || $campoPeriodo.value == "") {
@@ -66,7 +66,7 @@ const verificarDisponibilidade = async () => {
     } else {
         return true;
     }
-}
+};
 
 const salvarAgenda = async () => {
     const camposValidos = validarCampos();
@@ -83,6 +83,7 @@ const salvarAgenda = async () => {
         })
         return;
     }
+    
     const agenda = {
         usuario: {
             nome: "Usuário",
@@ -112,8 +113,8 @@ const salvarAgenda = async () => {
                     text: 'Algo deu errado!',
                     confirmButtonColor: '#36357E'
                 })   
-            })    
-}
+            })
+};
 
 $agendarBtn.addEventListener("click", salvarAgenda)
 $voltarBtn.addEventListener("click", () => {
