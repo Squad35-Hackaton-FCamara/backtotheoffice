@@ -40,7 +40,7 @@ const verificarSenha = () => {
     return true;
 }
 
-const verificarUsuarioExistente = async () => {
+const verificarSeEmailCadastrado = async () => {
     const emailInserido = $campoEmail.value;
     const response = await axios.get('https://de-volta-para-o-escritorio-default-rtdb.firebaseio.com/usuario.json')
     const usuariosArray = objParaArray(response.data);
@@ -62,6 +62,8 @@ const verificarSenhaHandler = () => {
             text: 'As senhas informadas não coincidem',
             confirmButtonColor: '#36357E'
         })
+        $campoSenha.value = "";
+        $campoRepetirSenha.value = "";
         return;
     }
 }
@@ -72,8 +74,8 @@ const cadastrarUsuario = async () => {
         return;
     }
 
-    const usuarioExistente = await verificarUsuarioExistente();
-    if (usuarioExistente == true) {
+    const emailCadastrado = await verificarSeEmailCadastrado();
+    if (emailCadastrado == true) {
         Swal.fire({
             icon: 'error',
             title: 'Oops...',
