@@ -16,7 +16,7 @@ const passwordIconClickHandler = () => {
     iconeSenha.classList.add( "fa-eye-slash" );
     iconeSenha.classList.remove( "fa-eye" );
   }
-}
+};
 
 const validarCampos = () => {
   if ($campoEmail.value == "" || 
@@ -41,16 +41,30 @@ const objParaArray = (obj) => {
 
 const verificarSeEmailCadastrado = async () => {
   const emailInserido = $campoEmail.value;
-    const response = await axios.get('https://de-volta-para-o-escritorio-default-rtdb.firebaseio.com/usuario.json')
-    const usuariosArray = objParaArray(response.data);
-    let emailJaCadastrado = false;
-    for (const usuario of usuariosArray) {
-        if (usuario.email == emailInserido) {           
-            emailJaCadastrado = true;
-        }    
+  const response = await axios.get('https://de-volta-para-o-escritorio-default-rtdb.firebaseio.com/usuario.json')
+  const usuariosArray = objParaArray(response.data);
+  let emailJaCadastrado = false;
+  for (const usuario of usuariosArray) {
+    if (usuario.email == emailInserido) {           
+        emailJaCadastrado = true;
+    }    
+  }
+  return emailJaCadastrado;
+};
+
+const verificarEmailESenha = async () => {
+  const emailInserido = $campoEmail.value;
+  const senhaInserida = $campoSenha.value;
+  const response = await axios.get('https://de-volta-para-o-escritorio-default-rtdb.firebaseio.com/usuario.json')
+  const usuariosArray = objParaArray(response.data);
+  let emailESenhaCorretos = false;
+  for (const usuario of usuariosArray) {
+    if (usuario.email == emailInserido && usuario.senha == senhaInserida) {           
+        emailESenhaCorretos = true;
     }
-    return emailJaCadastrado;
-}
+  }
+  return emailESenhaCorretos;
+};
 
 const entrar = async () => {
   const camposValidos = validarCampos();
@@ -62,20 +76,31 @@ const entrar = async () => {
         confirmButtonColor: '#36357E'
     })
     return;
-    }
+  };
 
-    const emailCadastrado = await verificarSeEmailCadastrado();
-    if (emailCadastrado == false) {
-        Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: 'Este e-mail ainda não foi cadastrado.',
-            confirmButtonColor: '#36357E'
-        })
-        return;
-    }
+  const emailCadastrado = await verificarSeEmailCadastrado();
+  if (emailCadastrado == false) {
+      Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Este e-mail ainda não foi cadastrado.',
+          confirmButtonColor: '#36357E'
+      })
+      return;
+  };
 
-  window.location.href = window.location.origin + "/tela-inicial"
+  const emailESenhaCorretos = await verificarEmailESenha();
+  if (emailESenhaCorretos == false) {
+    Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Digite o e-mail e a senha corretamente.',
+        confirmButtonColor: '#36357E'
+    })
+    return;
+  };
+
+  window.location.href = window.location.origin + "/tela-inicial";
 }
 
 iconeSenha.addEventListener("click", passwordIconClickHandler);
