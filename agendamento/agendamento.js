@@ -1,3 +1,6 @@
+const $consultarColegas = document.getElementById("consultar-colegas");
+const $logout = document.getElementById("logout");
+
 const $voltarBtn = document.getElementById("voltarBtn");
 const $agendarBtn = document.getElementById("agendarBtn");
 const $campoEscritorio = document.getElementById("campoEscritorio");
@@ -116,7 +119,17 @@ const salvarAgenda = async () => {
             })
 };
 
+const usuarioString = localStorage.getItem("usuarioLogado");
+let usuarioLogado = JSON.parse(usuarioString);
+console.log(usuarioLogado);
+const fazerLogout = () => {
+    localStorage.removeItem("usuarioLogado")
+    usuarioLogado = "";
+    window.location.href = window.location.origin + "/login"
+}
+
 $agendarBtn.addEventListener("click", salvarAgenda)
 $voltarBtn.addEventListener("click", () => {
     window.location.href = window.location.origin + "/tela-inicial"
 })
+$logout.addEventListener("click", fazerLogout);

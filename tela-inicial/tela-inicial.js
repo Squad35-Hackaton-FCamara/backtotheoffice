@@ -1,3 +1,6 @@
+const $consultarColegas = document.getElementById("consultar-colegas");
+const $logout = document.getElementById("logout");
+ 
 const $listaAgendamentos = document.getElementById("listaAgendamentos");
 const $cardInicio = document.getElementById("card-inicio");
 const $cardAtualizado = document.getElementById("card-atualizado");
@@ -135,8 +138,12 @@ const mostraListaAgendamentos = (agendamentos) => {
     atualizaUI();
 };
 
+const usuarioString = localStorage.getItem("usuarioLogado");
+let usuarioLogado = JSON.parse(usuarioString);
+console.log(usuarioLogado);
+
 window.onload = () => {
-    axios.get('https://de-volta-para-o-escritorio-default-rtdb.firebaseio.com/agenda.json')
+    axios.get(`https://de-volta-para-o-escritorio-default-rtdb.firebaseio.com/agenda/${usuarioLogado.id}.json`) //alterar caminho; setar quando agenda algum caminho acessável pelo id
         .then(function (response) {
             const agendamentosArray = objParaArray(response.data);
             mostraListaAgendamentos(agendamentosArray);
@@ -144,9 +151,16 @@ window.onload = () => {
         })
         .catch(function (error) {    
             console.log(error);
-        })
+        });
 };
+
+const fazerLogout = () => {
+    localStorage.removeItem("usuarioLogado")
+    usuarioLogado = "";
+    window.location.href = window.location.origin + "/login"
+}
 
 $agendarBtn.addEventListener("click", () => {
     window.location.href = window.location.origin + "/agendamento"
 })
+$logout.addEventListener("click", fazerLogout);
