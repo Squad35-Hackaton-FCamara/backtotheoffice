@@ -1,7 +1,7 @@
+const $telaInicialBtn = document.getElementById("telaInicial");
 const $telaAgendamentosBtn = document.getElementById("telaAgendamentos");
-const $consultarColegas = document.getElementById("consultar-colegas");
 const $logout = document.getElementById("logout");
- 
+
 const $listaAgendamentos = document.getElementById("listaAgendamentos");
 const $cardInicio = document.getElementById("card-inicio");
 const $cardAtualizado = document.getElementById("card-atualizado");
@@ -27,9 +27,8 @@ function atualizaUI() {
 const renderizaSaudacaoAtualizada = () => {
     const saudacaoAtualizada = document.createElement("div");
     saudacaoAtualizada.className = "elemento-saudacao";
-    saudacaoAtualizada.innerHTML = `
-    <p class="bem-vindo">Seja bem-vindo(a), <span>${usuarioLogado.nome}!</span></p>
-    <p class="seus-agendamentos">Seus agendamentos:</p>
+    saudacaoAtualizada.innerHTML = `    
+    <p class="bem-vindo">Agendamentos dos demais <span>Sangue Laranja</span>:</p>
     `;
     $saudacao.append(saudacaoAtualizada);
 }
@@ -47,58 +46,8 @@ const objParaArray = (obj) => {
     return result;
 };
 
-const deletaAgendamento = (id) => {
-    let agendamentoIndex = 0;
-    debugger
-    for (const agendamento of agendamentos) {
-        if (agendamento.id === id || agendamentos.length == 1) { break; }
-        agendamentoIndex++;
-        debugger
-    }
-    
-    agendamentos.splice(agendamentoIndex, 1);
-    debugger
-    $listaAgendamentos.children[agendamentoIndex].remove();
-    axios.delete(`https://de-volta-para-o-escritorio-default-rtdb.firebaseio.com/agenda/${id}.json`).then((response) => {
-        Swal.fire({
-            title: 'Deletado!',
-            text: "Seu agendamento foi deletado.",
-            icon: 'success',
-            confirmButtonColor: '#36357E'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                window.location.href = window.location.origin + "/tela-inicial"
-            }
-        })       
-    }).catch((error) => {
-        Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: 'Algo deu errado!',
-            confirmButtonColor: '#36357E'
-        })
-    })
-}
-
-const exibeModalDeletarAgendamento = (id) => {
-    Swal.fire({
-        title: 'Tem certeza de que quer deletar este agendamento?',
-        text: "Você não poderá reverter esta ação!",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#36357E',
-        cancelButtonColor: '#FE4400',
-        confirmButtonText: 'Sim, deletar!',
-        cancelButtonText: 'Cancelar'
-      }).then((result) => {
-        if (result.isConfirmed) {          
-            deletaAgendamento(id);                       
-        }
-      })
-}
-
 const renderizaAgendamento = (id, escritorio, data, periodo, nomeUsuario, idUsuario) => {    
-    if (nomeUsuario !== usuarioLogado.nome || idUsuario !== usuarioLogado.id) {
+    if (nomeUsuario == usuarioLogado.nome || idUsuario == usuarioLogado.id) {
         return;
     }
     
@@ -124,6 +73,7 @@ const renderizaAgendamento = (id, escritorio, data, periodo, nomeUsuario, idUsua
     <div class="card">       
         <img src="/img/icone-agenda.png" alt="ícone de agenda">
         <div class="agendamento-info">
+            <p><span>Consultor:</span> ${nomeUsuario}</p>
             <p><span>Escritório:</span> ${escritorio}</p>
             <p><span>Data:</span> ${data}</p>
             <p><span>Horário/Período:</span> ${periodo}</p>
@@ -131,11 +81,6 @@ const renderizaAgendamento = (id, escritorio, data, periodo, nomeUsuario, idUsua
     </div>
     `;    
 
-    const deletarAgendamentoBtn = document.createElement("button");
-    deletarAgendamentoBtn.className = "deletarBtn";
-
-    deletarAgendamentoBtn.addEventListener("click", exibeModalDeletarAgendamento.bind(null, id));
-    novoAgendamento.querySelector(".card").append(deletarAgendamentoBtn); 
     $listaAgendamentos.append(novoAgendamento);
 }
 
@@ -147,7 +92,7 @@ const mostraListaAgendamentos = (agendamentos) => {
 };
 
 window.onload = () => {
-    axios.get(`https://de-volta-para-o-escritorio-default-rtdb.firebaseio.com/agenda.json`) //alterar caminho; setar quando agenda algum caminho acessável pelo id
+    axios.get(`https://de-volta-para-o-escritorio-default-rtdb.firebaseio.com/agenda.json`)
         .then(function (response) {
             const agendamentosArray = objParaArray(response.data);
             mostraListaAgendamentos(agendamentosArray);
@@ -164,7 +109,6 @@ const fazerLogout = () => {
     window.location.href = window.location.origin + "/login"
 };
 
-$agendarBtn.addEventListener("click", () => window.location.href = window.location.origin + "/agendamento");
+$telaInicialBtn.addEventListener("click", () => window.location.href = window.location.origin + "/tela-inicial");
 $telaAgendamentosBtn.addEventListener("click", () => window.location.href = window.location.origin + "/agendamento");
-$consultarColegas.addEventListener("click", () => window.location.href = window.location.origin + "/tela-agenda-colegas");
 $logout.addEventListener("click", fazerLogout);

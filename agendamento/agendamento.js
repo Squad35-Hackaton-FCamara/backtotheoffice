@@ -1,3 +1,4 @@
+const $telaInicialBtn = document.getElementById("telaInicial");
 const $consultarColegas = document.getElementById("consultar-colegas");
 const $logout = document.getElementById("logout");
 
@@ -126,10 +127,10 @@ const fazerLogout = () => {
     localStorage.removeItem("usuarioLogado")
     usuarioLogado = "";
     window.location.href = window.location.origin + "/login"
-}
+};
 
 $agendarBtn.addEventListener("click", salvarAgenda)
-$voltarBtn.addEventListener("click", () => {
-    window.location.href = window.location.origin + "/tela-inicial"
-})
+$voltarBtn.addEventListener("click", () => window.location.href = window.location.origin + "/tela-inicial");
+$telaInicialBtn.addEventListener("click", () => window.location.href = window.location.origin + "/tela-inicial");
+$consultarColegas.addEventListener("click", () => window.location.href = window.location.origin + "/tela-agenda-colegas");
 $logout.addEventListener("click", fazerLogout);

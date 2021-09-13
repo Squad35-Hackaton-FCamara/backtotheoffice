@@ -1,0 +1,267 @@
+* {
+    font-family: 'Montserrat';
+}
+
+body {
+    background-color: #E0E0E0!important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    width: 100vw;
+    margin-bottom: 24px;
+    border-radius: 0px 0px 64px 64px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1)
+}
+
+header img {
+    margin: 40px 0 10px;
+    width: 290px;    
+}
+
+header p {
+    width: 332px;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 41.73px;
+    text-align: center;
+    letter-spacing: 0.1em;
+    font-variant: small-caps;
+    font-feature-settings: 'liga' off;
+    color: #FE4400;
+    margin-bottom: 24px;
+}
+
+.dropdown {
+    position: absolute!important;
+    top: 3rem;
+    left: 3rem;
+    padding: 0;
+}
+
+.btn-secondary.dropdown-toggle {
+    padding: 0;
+    background-color: #fff;
+    border-color: #fff;  
+}
+
+.btn-secondary.dropdown-toggle:hover {
+    background-color: #fff;
+    border-color: #fff;
+}
+
+.btn-secondary.dropdown-toggle.show {
+    padding: 0;
+    background-color: #fff;
+    border-color: #fff;
+    box-shadow: none;
+}
+
+.btn-secondary.dropdown-toggle:active:focus {
+    box-shadow: none;
+}
+
+.btn-secondary.dropdown-toggle::after {
+    display: none;
+}
+
+.btn-secondary.dropdown-toggle.show::after {
+    display: none;
+}
+
+.dropdown img {
+    width: 42px;
+}
+
+.dropdown-menu {
+    border-radius: 0.6rem!important;
+    font-size: 20px!important;    
+}
+
+.dropdown-item {
+    color: #FE4400!important;
+}
+
+.card-agendamento {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    background-color: #fff;
+    width: 650px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 24px;
+}
+
+.card-agendamento p {
+    font-size: 24px;
+    font-weight: 600;
+    color: #4A4A4A;   
+}
+
+#card-inicio {
+    padding: 0 32px;
+}
+
+.card-agendamento p span{
+    color: #FE4400;
+}
+
+.card-agendamento p.bem-vindo {
+    margin: 24px 0 24px 0;
+}
+
+.elemento-saudacao {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0 32px
+}
+
+ul {
+    list-style-type: none;
+    padding: 0 32px;
+}
+
+ul li .card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 586px;
+    border: 1.5px solid #36357E;
+    border-radius: 12px;
+    margin-bottom: 24px;
+}
+
+ul li .card img{
+    width: 80px;
+    height: 80px;
+    margin: 0 8px 0 16px;
+}
+
+ul li .card .agendamento-info {    
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    padding: 8px 0;
+}
+
+ul li .card .agendamento-info p {
+    color: #36357E;
+    margin: 0;
+}
+
+@media (max-width: 1350px) {
+    header {
+        margin-bottom: 18px;
+    }
+
+    header img {
+        width: 128px;
+        height: 27px;
+        margin: 24px 0 10px;
+    }
+    
+    header p {
+        width: 204px;
+        font-size: 15px;
+        line-height: 23px;
+        margin-bottom: 18px;
+    }
+
+    .dropdown {
+        top: 2rem;
+        left: 2rem;
+    }
+
+    .dropdown img {
+        width: 24px;
+    }
+
+    .dropdown-menu {
+        font-size: 14px!important;
+        padding: .5rem 0!important;
+    }
+
+    .card-agendamento p.bem-vindo {
+        margin: 16px auto 12px;
+    }
+    
+    .elemento-saudacao {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0 16px
+    }
+
+    .card-agendamento {
+        width: 327px;
+        margin-bottom: 16px;
+    }
+
+    .card-agendamento p {
+        font-size: 16px;
+    }
+
+    ul {
+        padding: 0!important;
+        margin: 0 10px!important;
+    }
+    
+    ul li .card {       
+        width: 307px;
+        margin-bottom: 16px;
+    }
+    
+    ul li .card img{
+        width: 32px;
+        height: 32px;       
+    }
+
+    ul li .card .agendamento-info p {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 350px) {
+    header {
+        width: 100vw;;
+    }
+
+    header p {        
+        font-size: 14px;
+        margin-bottom: 24px;
+    }
+
+    .dropdown {
+        top: 1.5rem;
+        left: 1.5rem;
+    }
+
+    .card-agendamento {
+        width: 16rem;       
+    }
+
+    ul li .card {
+        width: 15rem;
+    }
+
+    ul li .card img{
+        width: 28px;
+        height: 28px;
+        margin: 0 8px 0 8px;
+    }
+    
+    ul li .card .agendamento-info p {
+        font-size: 12px;
+    }
+}
