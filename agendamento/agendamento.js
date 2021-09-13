@@ -7,6 +7,9 @@ const $campoEscritorio = document.getElementById("campoEscritorio");
 const $campoData = document.getElementById("campoData");
 const $campoPeriodo = document.getElementById("campoPeriodo");
 
+const usuarioString = localStorage.getItem("usuarioLogado");
+let usuarioLogado = JSON.parse(usuarioString);
+
 const atualizaUI = () => {
     $campoEscritorio.value = "";
     $campoData.value = "";
@@ -89,8 +92,8 @@ const salvarAgenda = async () => {
     
     const agenda = {
         usuario: {
-            nome: "Usuário",
-            userId: 1
+            nome: usuarioLogado.nome,
+            userId: usuarioLogado.id
         },
         escritorio: $campoEscritorio.value,
         data: $campoData.value,
@@ -119,9 +122,6 @@ const salvarAgenda = async () => {
             })
 };
 
-const usuarioString = localStorage.getItem("usuarioLogado");
-let usuarioLogado = JSON.parse(usuarioString);
-console.log(usuarioLogado);
 const fazerLogout = () => {
     localStorage.removeItem("usuarioLogado")
     usuarioLogado = "";

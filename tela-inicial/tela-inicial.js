@@ -9,6 +9,9 @@ const $agendarBtn = document.getElementById("agendarBtn");
 
 const agendamentos = [];
 
+const usuarioString = localStorage.getItem("usuarioLogado");
+let usuarioLogado = JSON.parse(usuarioString);
+
 function atualizaUI() {
     if (document.querySelectorAll("#listaAgendamentos li").length > 0) {
         $cardInicio.style.display = "none";
@@ -93,7 +96,11 @@ const exibeModalDeletarAgendamento = (id) => {
       })
 }
 
-const renderizaAgendamento = (id, escritorio, data, periodo) => {    
+const renderizaAgendamento = (id, escritorio, data, periodo, nomeUsuario, idUsuario) => {    
+    if (nomeUsuario !== usuarioLogado.nome || idUsuario !== usuarioLogado.id) {
+        return;
+    }
+    
     if (escritorio == "saoPaulo") {
         escritorio = "São Paulo";
     } else if (escritorio == "santos") {
@@ -133,17 +140,13 @@ const renderizaAgendamento = (id, escritorio, data, periodo) => {
 
 const mostraListaAgendamentos = (agendamentos) => {    
     for (let obj of agendamentos) {
-        renderizaAgendamento(obj.id, obj.escritorio, obj.data, obj.periodo);
+        renderizaAgendamento(obj.id, obj.escritorio, obj.data, obj.periodo, obj.usuario.nome, obj.usuario.userId);
     }
     atualizaUI();
 };
 
-const usuarioString = localStorage.getItem("usuarioLogado");
-let usuarioLogado = JSON.parse(usuarioString);
-console.log(usuarioLogado);
-
 window.onload = () => {
-    axios.get(`https://de-volta-para-o-escritorio-default-rtdb.firebaseio.com/agenda/${usuarioLogado.id}.json`) //alterar caminho; setar quando agenda algum caminho acessável pelo id
+    axios.get(`https://de-volta-para-o-escritorio-default-rtdb.firebaseio.com/agenda.json`) //alterar caminho; setar quando agenda algum caminho acessável pelo id
         .then(function (response) {
             const agendamentosArray = objParaArray(response.data);
             mostraListaAgendamentos(agendamentosArray);
