@@ -11,6 +11,7 @@
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script src="tela-inicial.js" defer></script>
         <script src="/js/bootstrap/bootstrap.min.js" defer></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous" defer></script>
         <script src="https://use.fontawesome.com/b9bdbd120a.js" defer></script>        
     </head>
     <body>
@@ -18,6 +19,16 @@
             <img src="/img/Logotipo-FCamara 1.png" alt="logo FCamara">
             <p>DE VOLTA PARA O ESCRITÓRIO</p>
         </header>
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="/img/menu.png" alt="menu">
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li><a class="dropdown-item" href="#">Consultar agendas de colegas</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Sair</a></li>
+            </ul>
+        </div>
         <section id="card-inicio" class="card-agendamento">
             <p class="bem-vindo">Seja bem-vindo(a), <span>Sangue Laranja!</span></p>
             <p class="seus-agendamentos">Parece que você ainda não tem nenhum agendamento, que tal agendar?</p>

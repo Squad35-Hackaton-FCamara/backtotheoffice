@@ -7,6 +7,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
 }
 
 header {
@@ -36,6 +37,56 @@ header p {
     font-feature-settings: 'liga' off;
     color: #FE4400;
     margin-bottom: 24px;
+}
+
+.dropdown {
+    position: absolute!important;
+    top: 3rem;
+    left: 3rem;
+    padding: 0;
+}
+
+.btn-secondary.dropdown-toggle {
+    padding: 0;
+    background-color: #fff;
+    border-color: #fff;  
+}
+
+.btn-secondary.dropdown-toggle:hover {
+    background-color: #fff;
+    border-color: #fff;
+}
+
+.btn-secondary.dropdown-toggle.show {
+    padding: 0;
+    background-color: #fff;
+    border-color: #fff;
+    box-shadow: none;
+}
+
+.btn-secondary.dropdown-toggle:active:focus {
+    box-shadow: none;
+}
+
+.btn-secondary.dropdown-toggle::after {
+    display: none;
+}
+
+.btn-secondary.dropdown-toggle.show::after {
+    display: none;
+}
+
+.dropdown img {
+    width: 42px;
+}
+
+.dropdown-menu {
+    border-radius: 0.6rem!important;
+    font-size: 20px!important;    
+}
+
+.dropdown-item {
+    color: #FE4400!important;
 }
 
 .card-agendamento {
@@ -160,6 +211,20 @@ body #agendarBtn:hover {
         margin-bottom: 18px;
     }
 
+    .dropdown {
+        top: 2rem;
+        left: 2rem;
+    }
+
+    .dropdown img {
+        width: 24px;
+    }
+
+    .dropdown-menu {
+        font-size: 14px!important;
+        padding: .5rem 0!important;
+    }
+
     .card-agendamento p.bem-vindo {
         margin: 16px auto 12px;
     }
@@ -223,6 +288,11 @@ body #agendarBtn:hover {
     header p {        
         font-size: 14px;
         margin-bottom: 24px;
+    }
+
+    .dropdown {
+        top: 1.5rem;
+        left: 1.5rem;
     }
 
     .card-agendamento {
