@@ -108,7 +108,7 @@ const entrar = async () => {
 
   const usuarioString = JSON.stringify(await verificarEmailESenha());
   localStorage.setItem("usuarioLogado", usuarioString);  
-  window.location.href = window.location.origin + "/tela-inicial";
+  window.location.href = window.location.origin + "/backtotheoffice/tela-inicial";
   atualizaUI();
 }
 

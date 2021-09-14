@@ -126,11 +126,11 @@ const salvarAgenda = async () => {
 const fazerLogout = () => {
     localStorage.removeItem("usuarioLogado")
     usuarioLogado = "";
-    window.location.href = window.location.origin + "/login"
+    window.location.href = window.location.origin + "/backtotheoffice/login"
 };
 
 $agendarBtn.addEventListener("click", salvarAgenda)
-$voltarBtn.addEventListener("click", () => window.location.href = window.location.origin + "/tela-inicial");
-$telaInicialBtn.addEventListener("click", () => window.location.href = window.location.origin + "/tela-inicial");
-$consultarColegas.addEventListener("click", () => window.location.href = window.location.origin + "/tela-agenda-colegas");
+$voltarBtn.addEventListener("click", () => window.location.href = window.location.origin + "/backtotheoffice/tela-inicial");
+$telaInicialBtn.addEventListener("click", () => window.location.href = window.location.origin + "/backtotheoffice/tela-inicial");
+$consultarColegas.addEventListener("click", () => window.location.href = window.location.origin + "/backtotheoffice/tela-agenda-colegas");
 $logout.addEventListener("click", fazerLogout);

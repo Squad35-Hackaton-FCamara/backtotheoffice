@@ -106,9 +106,9 @@ window.onload = () => {
 const fazerLogout = () => {
     localStorage.removeItem("usuarioLogado")
     usuarioLogado = "";
-    window.location.href = window.location.origin + "/login"
+    window.location.href = window.location.origin + "/backtotheoffice/login"
 };
 
-$telaInicialBtn.addEventListener("click", () => window.location.href = window.location.origin + "/tela-inicial");
-$telaAgendamentosBtn.addEventListener("click", () => window.location.href = window.location.origin + "/agendamento");
+$telaInicialBtn.addEventListener("click", () => window.location.href = window.location.origin + "/backtotheoffice/tela-inicial");
+$telaAgendamentosBtn.addEventListener("click", () => window.location.href = window.location.origin + "/backtotheoffice/agendamento");
 $logout.addEventListener("click", fazerLogout);

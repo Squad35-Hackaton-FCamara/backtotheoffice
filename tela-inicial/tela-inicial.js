@@ -67,7 +67,7 @@ const deletaAgendamento = (id) => {
             confirmButtonColor: '#36357E'
         }).then((result) => {
             if (result.isConfirmed) {
-                window.location.href = window.location.origin + "/tela-inicial"
+                window.location.href = window.location.origin + "/backtotheoffice/tela-inicial"
             }
         })       
     }).catch((error) => {
@@ -161,10 +161,10 @@ window.onload = () => {
 const fazerLogout = () => {
     localStorage.removeItem("usuarioLogado")
     usuarioLogado = "";
-    window.location.href = window.location.origin + "/login"
+    window.location.href = window.location.origin + "/backtotheoffice/login"
 };
 
-$agendarBtn.addEventListener("click", () => window.location.href = window.location.origin + "/agendamento");
-$telaAgendamentosBtn.addEventListener("click", () => window.location.href = window.location.origin + "/agendamento");
-$consultarColegas.addEventListener("click", () => window.location.href = window.location.origin + "/tela-agenda-colegas");
+$agendarBtn.addEventListener("click", () => window.location.href = window.location.origin + "/backtotheoffice/agendamento");
+$telaAgendamentosBtn.addEventListener("click", () => window.location.href = window.location.origin + "/backtotheoffice/agendamento");
+$consultarColegas.addEventListener("click", () => window.location.href = window.location.origin + "/backtotheoffice/tela-agenda-colegas");
 $logout.addEventListener("click", fazerLogout);
