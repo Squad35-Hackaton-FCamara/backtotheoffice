@@ -49,15 +49,12 @@ const objParaArray = (obj) => {
 
 const deletaAgendamento = (id) => {
     let agendamentoIndex = 0;
-    debugger
     for (const agendamento of agendamentos) {
         if (agendamento.id === id || agendamentos.length == 1) { break; }
         agendamentoIndex++;
-        debugger
     }
     
     agendamentos.splice(agendamentoIndex, 1);
-    debugger
     $listaAgendamentos.children[agendamentoIndex].remove();
     axios.delete(`https://de-volta-para-o-escritorio-default-rtdb.firebaseio.com/agenda/${id}.json`).then((response) => {
         Swal.fire({
