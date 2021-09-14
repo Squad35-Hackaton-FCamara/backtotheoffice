@@ -111,7 +111,7 @@ header p {
 #cardAgendamento button {
     position: absolute;
     left:0em;
-    background-image: url(/img/arrow-left.png);
+    background-image: url(../img/arrow-left.png);
     background-size: cover;
     background-color: #fff;
     width: 36px;
