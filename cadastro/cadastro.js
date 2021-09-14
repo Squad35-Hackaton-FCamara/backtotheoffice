@@ -33,13 +33,6 @@ const objParaArray = (obj) => {
     return result;
 };
 
-const verificarSenha = () => {
-    if ($campoSenha.value !== $campoRepetirSenha.value) {
-        return false;
-    }
-    return true;
-}
-
 const verificarSeEmailCadastrado = async () => {
     const emailInserido = $campoEmail.value;
     const response = await axios.get('https://de-volta-para-o-escritorio-default-rtdb.firebaseio.com/usuario.json')
@@ -52,6 +45,36 @@ const verificarSeEmailCadastrado = async () => {
     }
     return emailJaCadastrado;
 };
+
+const verificarCaracteres = () => {
+    const numeroDeCaracteres = $campoSenha.value;
+    debugger
+    if (numeroDeCaracteres.length > 8) {
+        return false;
+    }
+    return true;
+}
+
+const verificarCaracteresHandler = () => {
+    const maxCaracteres = verificarCaracteres();
+    if (maxCaracteres == false) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Sua senha deve ter no máximo 8 caracteres',
+            confirmButtonColor: '#36357E'
+        })
+        $campoSenha.value = "";
+        return;
+    }
+}
+
+const verificarSenha = () => {
+    if ($campoSenha.value !== $campoRepetirSenha.value) {
+        return false;
+    }
+    return true;
+}
 
 const verificarSenhaHandler = () => {
     const senhaConfirmada = verificarSenha();
@@ -114,4 +137,5 @@ const cadastrarUsuario = async () => {
 };
 
 $cadastrarBtn.addEventListener("click", cadastrarUsuario);
+$campoSenha.addEventListener("blur", verificarCaracteresHandler);
 $campoRepetirSenha.addEventListener("blur", verificarSenhaHandler);
