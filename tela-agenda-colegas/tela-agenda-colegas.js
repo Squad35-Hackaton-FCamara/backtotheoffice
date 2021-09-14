@@ -71,7 +71,7 @@ const renderizaAgendamento = (id, escritorio, data, periodo, nomeUsuario, idUsua
     novoAgendamento.className = "elemento-agendamento";
     novoAgendamento.innerHTML = `
     <div class="card">       
-        <img src="/img/icone-agenda.png" alt="ícone de agenda">
+        <img src="../img/icone-agenda.png" alt="ícone de agenda">
         <div class="agendamento-info">
             <p><span>Consultor:</span> ${nomeUsuario}</p>
             <p><span>Escritório:</span> ${escritorio}</p>
