@@ -48,7 +48,6 @@ const verificarSeEmailCadastrado = async () => {
 
 const verificarCaracteres = () => {
     const numeroDeCaracteres = $campoSenha.value;
-    debugger
     if (numeroDeCaracteres.length > 8) {
         return false;
     }

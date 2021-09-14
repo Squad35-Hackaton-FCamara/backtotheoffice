@@ -258,10 +258,6 @@ body #agendarBtn:hover {
         margin: 0 0 0 24px;
     }
 
-    #cardAgendamento .form-control {
-        margin-bottom: 18px;        
-    }
-
     #cardAgendamento .mb-3 p {
         margin-bottom: 18px;
     }
