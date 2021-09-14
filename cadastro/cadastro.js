@@ -121,7 +121,7 @@ const cadastrarUsuario = async () => {
                     confirmButtonColor: '#36357E'
                 }).then((result) => {
                     if (result.isConfirmed) {          
-                        window.location.href = window.location.origin + "/backtotheoffice/login"
+                        window.location.href = window.location.origin + "/backtotheoffice"
                     }
                 })
             })
