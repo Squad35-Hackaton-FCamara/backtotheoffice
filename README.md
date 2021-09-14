@@ -6,4 +6,4 @@ Projeto desenvolvido pelo SQUAD 35 durante o processo seletivo do Programa de Fo
 Com a finalidade de automatizar a organização da reabertura dos escritórios do grupo FCamara, criamos uma aplicação web por meio da qual os consultores poderão realizar agendamentos para ir aos escritórios, escolhendo a cidade, o dia e o período mais adequados a cada um. 
 A aplicação permite, ainda, que os consultores vejam os agendamentos feitos por seus colegas, para que possam organizar-se da melhor forma ao realizar seus agendamentos.
 
-Link do projeto online: 
+<a href="https://squad35-hackaton-fcamara.github.io/backtotheoffice/">Link do projeto online</a>
