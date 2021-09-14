@@ -126,7 +126,7 @@ const salvarAgenda = async () => {
 const fazerLogout = () => {
     localStorage.removeItem("usuarioLogado")
     usuarioLogado = "";
-    window.location.href = window.location.origin + "/backtotheoffice/login"
+    window.location.href = window.location.origin + "/backtotheoffice"
 };
 
 $agendarBtn.addEventListener("click", salvarAgenda)

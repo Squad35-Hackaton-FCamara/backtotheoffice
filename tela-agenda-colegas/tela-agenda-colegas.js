@@ -106,7 +106,7 @@ window.onload = () => {
 const fazerLogout = () => {
     localStorage.removeItem("usuarioLogado")
     usuarioLogado = "";
-    window.location.href = window.location.origin + "/backtotheoffice/login"
+    window.location.href = window.location.origin + "/backtotheoffice"
 };
 
 $telaInicialBtn.addEventListener("click", () => window.location.href = window.location.origin + "/backtotheoffice/tela-inicial");
