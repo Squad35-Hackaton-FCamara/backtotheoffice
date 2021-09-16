@@ -7,3 +7,6 @@ Com a finalidade de automatizar a organização da reabertura dos escritórios d
 A aplicação permite, ainda, que os consultores vejam os agendamentos feitos por seus colegas, para que possam organizar-se da melhor forma ao realizar seus agendamentos.
 
 <a href="https://squad35-hackaton-fcamara.github.io/backtotheoffice/">Link do projeto online</a>
+
+Desenvolvedora - <a href="www.linkedin.com/in/nathalia-luiza-schedler-calza/">Nathalia Luiza Schedler Calza</a>
+UX|UI - <a href="www.linkedin.com/in/bruno-silva-evangelista-549ab3214">Bruno Silva Evangelista</a>
